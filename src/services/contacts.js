@@ -13,19 +13,16 @@ export const getContactById = async (contactId) => {
 export const createContacts = (payload) => ContactsCollection.create(payload);
 
 export const updateContact = async (filter, data, options = {}) => {
-  const rawResult = await ContactsCollection.findOneAndUpdate(filter, data, {
+  const updatedContact = await ContactsCollection.findOneAndUpdate(filter, data, {
     new: true,
-    includeResultMetadata: true,
     ...options,
   });
 
-  if (!rawResult || !rawResult.value) {
+  if (!updatedContact) {
     return null;
   }
 
-  return {
-    data: rawResult.value,
-  };
+  return updatedContact; // Возвращаем обновленный контакт напрямую
 };
 
 export const deleteContact = (filter) => {

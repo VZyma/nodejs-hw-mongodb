@@ -14,7 +14,6 @@ const contactSchema = new Schema(
       type: String,
       trim: true,
       lowercase: true,
-      unique: true,
       required: false,
       match: [/\S+@\S+\.\S+/, 'Email is invalid'],
     },
