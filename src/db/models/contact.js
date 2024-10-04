@@ -10,7 +10,7 @@ const contactSchema = new Schema(
       type: String,
       required: true,
     },
-    mail: {
+    email: {
       type: String,
       trim: true,
       lowercase: true,

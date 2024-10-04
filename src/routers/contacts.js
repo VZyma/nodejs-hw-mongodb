@@ -13,7 +13,7 @@ contactRouter.get(
   ctrlWrapper(contactControllers.getContactByIdController),
 );
 
-contactRouter.post('/', ctrlWrapper(contactControllers.addContactController));
+contactRouter.post('/', ctrlWrapper(contactControllers.createContactsController));
 
 contactRouter.patch(
   '/:contactId',

@@ -10,10 +10,7 @@ export const getContactById = async (contactId) => {
   return contact;
 };
 
-export const addContact = async (payload) => {
-  const contact = await ContactsCollection.create(payload);
-  return contact;
-};
+export const createContacts = (payload) => ContactsCollection.create(payload);
 
 export const updateContact = async (filter, data, options = {}) => {
   const rawResult = await ContactsCollection.findOneAndUpdate(filter, data, {
