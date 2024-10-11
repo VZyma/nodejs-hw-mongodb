@@ -40,8 +40,8 @@ export const getAllContacts = async ({
   return { contacts, page, perPage, totalItems: count, ...paginationData };
 };
 
-export const getContactById = async (contactId) => {
-  const contact = await ContactsCollection.findById(contactId);
+export const getContact = async (filter) => {
+  const contact = await ContactsCollection.findOne(filter);
   return contact;
 };
 
@@ -49,6 +49,7 @@ export const addContact = async (payload) => {
   const contact = await ContactsCollection.create(payload);
   return contact;
 };
+
 
 export const updateContact = async (filter, data, options = {}) => {
   const updatedContact = await ContactsCollection.findOneAndUpdate(filter, data, {
