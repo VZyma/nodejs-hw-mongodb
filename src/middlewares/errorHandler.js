@@ -1,27 +1,17 @@
-import createHttpError from 'http-errors';
+import { HttpError } from 'http-errors';
 
-const errorHandler = (error, req, res, next) => {
-  let status = error.status || 500;
-  let message = error.message || 'Something went wrong';
-  let data = error.expose ? error.message : 'Internal Server Error';
-
-  // Обработка ошибок валидации Mongoose
-  if (error.name === 'ValidationError') {
-    status = 400; // Bad Request
-    message = 'Validation Error';
-    data = {};
-
-    // Собираем все ошибки валидации в один объект
-    for (let field in error.errors) {
-      data[field] = error.errors[field].message;
+export const errorHandler = (error, req, res, next) => {
+    if (error instanceof HttpError) {
+        res.status(error.status).json({
+            status: error.status,
+            message: error.name,
+            data: error,
+        });
+        return;
     }
-  }
 
-  res.status(status).json({
-    status,
-    message,
-    data,
-  });
+    res.status(500).json({
+        message: 'Something went wrong',
+        error: error.message,
+    });
 };
-
-export default errorHandler;

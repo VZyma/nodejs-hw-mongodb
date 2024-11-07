@@ -1,40 +1,48 @@
-import createHttpError from 'http-errors';
+import createHttpError from "http-errors";
+import { SessionsCollection } from "../models/session.js";
+import { UsersCollection } from '../models/user.js';
 
-import * as authSevices from '../services/auth.js';
 
-const authenticate = async (req, res, next) => {
-  const { authorization } = req.headers;
 
-  if (!authorization) {
-    return next(createHttpError(401, 'Authorization header not found'));
-  }
+export const authenticate = async (req, res, next) => {
+    const authHeader = req.get('Authorization');
 
-  const [bearer, token] = authorization.split(' ');
-  if (bearer !== 'Bearer') {
-    return next(
-      createHttpError(401, 'Authorization header must have bearer type'),
-    );
-  }
+    if (!authHeader) {
+        next(createHttpError(401, 'Please provide Authorization header'));
+        return;
+    }
 
-  const session = await authSevices.findSessionByAccessToken(token);
+    const bearer = authHeader.split(' ')[0];
+    const token = authHeader.split(' ')[1];
 
-  if (!session) {
-    return next(createHttpError(401, 'Session not found'));
-  }
+    if (bearer !== 'Bearer' || !token) {
+        next(createHttpError(401, 'Auth header should be of type Bearer'));
+        return;
+    }
 
-  if (new Date() > session.accessTokenValidUntil) {
-    return next(createHttpError(401, 'Access token expired'));
-  }
+    const session = await SessionsCollection.findOne({
+        accessToken: token
+    });
 
-  const user = await authSevices.findUser({ _id: session.userId });
+    if (!session) {
+        next(createHttpError(401, 'Session is not found'));
+        return;
+    }
 
-  if (!user) {
-    return next(createHttpError(401, 'User not found'));
-  }
+    const isAccessTokenExpired = new Date() > new Date(session.accessTokenValidUntil);
 
-  req.user = user;
+    if (isAccessTokenExpired) {
+        next(createHttpError(401,'Access token expired'));
+    }
 
-  next();
+    const user = await UsersCollection.findById({ _id: session.userId });
+
+    if (!user) {
+        next(createHttpError(401, 'User not found'));
+        return;
+    }
+
+    req.user = user;
+
+    next();
 };
-
-export default authenticate;
