@@ -11,9 +11,6 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
-    },
-    {
       "url": "https://contacts-app-5avd.onrender.com"
     }
   ],
@@ -552,6 +549,11 @@
               "home",
               "personal"
             ]
+          },
+          "userId": {
+            "description": "contact id",
+            "type": "string",
+            "example": "65e4decdd286b30065d54af9"
           },
           "photo": {
             "description": "Link to contact's photo",
