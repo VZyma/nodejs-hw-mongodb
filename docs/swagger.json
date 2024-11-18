@@ -516,7 +516,6 @@
           "_id",
           "name",
           "phoneNumber",
-          "isFavorite",
           "contactType"
         ],
         "properties": {
@@ -553,11 +552,6 @@
               "home",
               "personal"
             ]
-          },
-          "userId": {
-            "description": "User ID",
-            "type": "Schema.Types.ObjectId",
-            "example": "65e4decdd286b30065d54af9"
           },
           "photo": {
             "description": "Link to contact's photo",

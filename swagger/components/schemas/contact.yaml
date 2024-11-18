@@ -3,7 +3,6 @@ required:
   - _id
   - name
   - phoneNumber
-  - isFavorite
   - contactType
 properties:
   _id:
@@ -30,10 +29,6 @@ properties:
     description: 'Number type'
     type: string
     enum: ['work', 'home', 'personal']
-  userId:
-    description: 'User ID'
-    type: Schema.Types.ObjectId
-    example: '65e4decdd286b30065d54af9'
   photo:
     description: "Link to contact's photo"
     type: string
