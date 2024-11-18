@@ -519,27 +519,27 @@
           "_id": {
             "description": "Contact's id",
             "type": "string",
-            "example": "65e4decdd286b30065d54af9"
+            "example": "66e375d8bb2f4a20c80d2fcf"
           },
           "name": {
             "description": "Contact's name",
             "type": "string",
-            "example": "Vlad Zyma"
+            "example": "Andriy Pavlenko"
           },
           "phoneNumber": {
             "description": "Contact's number",
             "type": "string",
-            "example": "380999999999"
+            "example": "+380000000003"
           },
           "email": {
             "description": "Contact's email",
             "type": "string",
-            "example": "asd@gmail.com"
+            "example": "dmytro3@example.com"
           },
           "isFavorite": {
             "description": "Favorite contact",
             "type": "boolean",
-            "example": "true"
+            "example": "false"
           },
           "contactType": {
             "description": "Number type",
@@ -553,7 +553,7 @@
           "userId": {
             "description": "contact id",
             "type": "string",
-            "example": "65e4decdd286b30065d54af9"
+            "example": "66e375d8bb2f4a20c80d2fcf"
           },
           "photo": {
             "description": "Link to contact's photo",
