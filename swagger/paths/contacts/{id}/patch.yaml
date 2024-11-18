@@ -13,6 +13,7 @@ parameters:
     required: true
     description: The ID of the contact to update
 requestBody:
+  required: false
   content:
     multipart/form-data:
       schema:
@@ -62,6 +63,10 @@ responses:
       application/json:
         schema:
           type: object
+          required:
+            - status
+            - message
+            - data
           properties:
             status:
               type: integer
@@ -70,6 +75,7 @@ responses:
               type: string
               example: Successfully patched the contact!
             data:
+              type: object
               $ref: '../../../components/schemas/contact.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
