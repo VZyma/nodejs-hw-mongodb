@@ -22,15 +22,15 @@ requestBody:
           name:
             type: string
             description: "Updated contact's name"
-            example: 'Nazar Pashko'
+            example: 'Vlad Zyma'
           phoneNumber:
             type: string
             description: "Updated contact's phone number"
-            example: '380684925957'
+            example: '380999999999'
           email:
             type: string
             description: "Updated contact's email"
-            example: 'naziksl2de@gmail.com'
+            example: 'asd@gmail.com'
           isFavourite:
             description: 'Favorite contact'
             type: 'boolean'
@@ -51,11 +51,11 @@ requestBody:
           phoneNumber:
             type: string
             description: "Updated contact's phone number"
-            example: '380684925957'
+            example: '380999999999'
           email:
             type: string
             description: "Updated contact's email"
-            example: 'naziksl2de@gmail.com'
+            example: 'asd@gmail.com'
 responses:
   '200':
     description: Contact updated successfully

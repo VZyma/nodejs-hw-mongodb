@@ -18,15 +18,15 @@ requestBody:
           name:
             description: "Contact's name"
             type: string
-            example: 'Nazar Pashko'
+            example: 'Vlad Zyma'
           phoneNumber:
             description: "Contact's number"
             type: string
-            example: '380684925957'
+            example: '3809999999'
           email:
             description: "Contact's email"
             type: string
-            example: 'naziksl2de@gmail.com'
+            example: 'asd@gmail.com'
           isFavourite:
             description: 'Favorite contact'
             type: 'boolean'

@@ -12,15 +12,15 @@ properties:
   name:
     description: "Contact's name"
     type: string
-    example: 'Nazar Pashko'
+    example: 'Vlad Zyma'
   phoneNumber:
     description: "Contact's number"
     type: string
-    example: '380684925957'
+    example: '380999999999'
   email:
     description: "Contact's email"
     type: string
-    example: 'naziksl2de@gmail.com'
+    example: 'asd@gmail.com'
   isFavorite:
     description: 'Favorite contact'
     type: boolean
