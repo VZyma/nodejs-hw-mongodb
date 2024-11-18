@@ -111,6 +111,7 @@
           }
         ],
         "requestBody": {
+          "required": false,
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -180,6 +181,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -190,6 +196,7 @@
                       "example": "Successfully patched the contact!"
                     },
                     "data": {
+                      "type": "object",
                       "$ref": "#/components/schemas/contact"
                     }
                   }
