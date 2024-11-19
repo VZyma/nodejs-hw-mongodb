@@ -12,7 +12,6 @@ tags:
   - name: Auth
     description: Auth operations.
 servers:
-  - url: http://localhost:3000
   - url: https://contacts-app-5avd.onrender.com
 paths:
   /contacts/{id}:
