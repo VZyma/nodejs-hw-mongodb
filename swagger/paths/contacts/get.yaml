@@ -89,5 +89,9 @@ responses:
                 hasPreviousPage:
                   type: boolean
                   example: false
+  '400':
+    $ref: '../../components/responses/contacts/400.yaml'
   '401':
-    $ref: '../../components/responses/401.yaml'
+    $ref: '../../components/responses/contacts/401.yaml'
+  '500':
+    $ref: '../../components/responses/contacts/500.yaml'
